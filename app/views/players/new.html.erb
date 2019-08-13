@@ -1,0 +1,21 @@
+<h1>ADD PLAYER</h1>
+
+
+
+<%= form_for(Player.new) do |form| %>
+
+<div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+</div>
+<div>
+    <%= form.label :age %>
+    <%= form.text_field :age %>
+</div>
+<div>
+    <%= form.label :reason %>
+    <%= form.text_area :reason %>
+</div>
+<%= form.submit %>
+
+<% end %>
