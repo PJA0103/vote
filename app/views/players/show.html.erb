@@ -1,0 +1,15 @@
+<% if @player %>
+
+    <h1>選手名字：<%= @player.name %></h1>
+
+    <ul>
+        <li>編號： <%= params[:id] %></li>
+        <li>年齡: <%= @player.age %></li>
+        <li>理由實績: <%= @player.reason %></li>
+    </ul>
+
+<% else %>
+
+    <h1>查無資料，請確認</h1>
+
+<% end %>

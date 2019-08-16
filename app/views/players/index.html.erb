@@ -1,2 +1,29 @@
+<%= flash[:notice] %>
+
 <h1>太陽木呆呆~</h1>
-<a href="/players/new">新增選手</a>
+
+
+<%= link_to '新增選手' , 'new_player_path' %>
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Age</td>
+
+        <td>Vote</td>
+        <td>Action</td>
+    </tr>
+
+    <% @players.each do |player| %>
+
+    <tr>
+        <td><%= link_to player.name , player_path(player.id) %></td>
+        <td><%= player.age %></td>
+
+        <td><%= player.votes %></td>
+        <td>Action</td>
+    </tr>
+
+    <% end %>
+
+</table>
