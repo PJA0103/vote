@@ -1,0 +1,13 @@
+.field_with_errors{
+    display: inline-block;
+
+    input[type="text"]{
+        border-color: #F00;
+        border-width: 2px;
+    }
+
+    label{
+        background-color: #f00;
+        color: #FFF;
+    }
+}

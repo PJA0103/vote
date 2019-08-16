@@ -1,6 +1,14 @@
 <h1>ADD PLAYER</h1>
 
+<% if @player.errors.any? %>
 
+<ul>
+    <% @player.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+</ul>
+
+<% end %>
 
 <%= form_for(@player) do |form| %>
 
