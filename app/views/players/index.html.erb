@@ -12,7 +12,9 @@
         <td>Age</td>
 
         <td>Vote</td>
-        <td>Action</td>
+        <td>Update</td>
+        <td>Delete</td>
+
     </tr>
 
     <% @players.each do |player| %>
@@ -22,7 +24,9 @@
         <td><%= player.age %></td>
 
         <td><%= player.votes %></td>
-        <td>Action</td>
+        <td><%= link_to 'update' ,   edit_player_path(player.id) %></td>
+        <td><%= link_to 'delete' ,   player_path(player.id) , method: 'delete' , data: {confirm:'確定刪除嗎?'} %></td>
+
     </tr>
 
     <% end %>
