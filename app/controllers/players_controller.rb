@@ -50,6 +50,16 @@ class PlayersController < ApplicationController
 
     end
 
+    def vote
+        @player = Player.find_by(id: params[:id])
+        @player.votes = @player.votes + 1
+        @player.save
+
+        flash[:notice] = "完成投票"
+        redirect_to '/players'
+
+    end
+
     private
     def simple
         params.require(:player).permit(:name, :age, :reason)
