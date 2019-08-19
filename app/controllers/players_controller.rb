@@ -52,8 +52,9 @@ class PlayersController < ApplicationController
 
     def vote
         @player = Player.find_by(id: params[:id])
-        @player.votes = @player.votes + 1
-        @player.save
+
+        Voterecord.create(player: @player, ip_address: request.remote_ip )
+  
 
         flash[:notice] = "完成投票"
         redirect_to '/players'
