@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_132346) do
+ActiveRecord::Schema.define(version: 2019_08_20_142605) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_08_19_132346) do
     t.integer "votes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "voterecords_count", default: 0
   end
 
   create_table "voterecords", force: :cascade do |t|

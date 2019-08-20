@@ -25,12 +25,12 @@
         <td><%= link_to player.name , player_path(player.id) %></td>
         <td><%= player.age %></td>
 
-        <td><%= player.voterecord.count %></td>
+        <td><%= player.voterecords_count %></td>
         <td><%= link_to 'update' ,   edit_player_path(player.id) %></td>
         <td><%= link_to 'delete' ,   player_path(player.id) , method: 'delete' , data: {confirm:'確定刪除嗎?'} %></td>
 
     </tr>
 
     <% end %>
-
+    
 </table>
