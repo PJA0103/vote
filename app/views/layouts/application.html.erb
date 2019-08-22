@@ -7,9 +7,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <h1>這是個小呆呆的頁面~</h1>
+
   </head>
 
   <body>
+    <%= flash[:notice] %>
+    <br>
     <%= yield %>
   </body>
 </html>

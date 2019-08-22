@@ -1,4 +1,7 @@
 class PlayersController < ApplicationController
+
+    before_action :player_id, only: [:show, :edit, :update, :destroy, :vote]
+
     def index
         @players = Player.all        
     end
@@ -12,46 +15,36 @@ class PlayersController < ApplicationController
         @player = Player.new(simple)
 
         if @player.save
-            flash[:notice] = "Player建置完成"
-            redirect_to '/players'
+            redirect_to '/players' , notice: "Player建置完成"
         else
             render :new 
         end
     end
 
     def show
-        params[:id]
-
-        @player = Player.find_by(id: params[:id])
     end
 
     def edit
-        @player = Player.find_by(id: params[:id])
-    end
-
+    end    
     def update
-        @player = Player.find_by(id: params[:id])
         
         if @player.update(simple)
-            flash[:notice] = "Player修改完成"
-            redirect_to '/players'
+            
+            redirect_to '/players' , notice: "Player修改完成"
         else
             render :edit
         end
     end
 
     def destroy
-        @player = Player.find_by(id: params[:id])
-
+        
         @player.destroy
-            flash[:notice] = "Player刪除"
-            redirect_to '/players'
-
+            redirect_to '/players' , notice: "Player刪除"
+        
 
     end
 
     def vote
-        @player = Player.find_by(id: params[:id])
 
         Voterecord.create(player: @player, ip_address: request.remote_ip )
   
@@ -65,4 +58,9 @@ class PlayersController < ApplicationController
     def simple
         params.require(:player).permit(:name, :age, :reason)
     end
+
+    def player_id
+        @player = Player.find_by(id: params[:id])
+    end
+
 end
